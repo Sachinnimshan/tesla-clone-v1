@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View,Text,ImageBackground,Image, TouchableOpacity} from 'react-native';
+import {View,Text,ImageBackground,Image, TouchableOpacity, ScrollView} from 'react-native';
 import styles from './styles';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {faCog, faToolbox, faFan, faKey, faLock, faUnlock} from '@fortawesome/free-solid-svg-icons';
@@ -31,20 +31,27 @@ function CarItem() {
                 style={styles.battery}/>
                 <Text style={styles.miles}>225 mi</Text>
             </View>
+            <ScrollView>
             <View style={styles.controlIcons}>
-                <TouchableOpacity><View style={styles.icons}>
+                <TouchableOpacity>
+                <View style={styles.icons}>
                 <FontAwesomeIcon size={22} color="white" icon={faFan}/>
-                </View></TouchableOpacity>
-                <TouchableOpacity><View style={styles.icons}>
+                </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                <View style={styles.icons}>
                 <FontAwesomeIcon size={22} color="white" icon={faKey}/>
-                </View></TouchableOpacity>
+                </View>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={handleLock}>
                 <View style={styles.icons}>
                 <FontAwesomeIcon size={22} color="white" icon={locked ? faLock : faUnlock}/>
-                </View></TouchableOpacity>
+                </View>
+                </TouchableOpacity>
             </View>
             {/* Menu */}
             <Menu/>
+            </ScrollView>
         </View>            
     )
 }
